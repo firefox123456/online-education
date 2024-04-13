@@ -1,45 +1,80 @@
 <template>
   <div class="yishi-player">
-    <div class="head">
-      <a href="/" title="一师讲堂">
-        <img class="logo" src="~/assets/img/logo.png" lt="一师讲堂">
-      </a>
-    </div>
+    <header id="header">
+      <div class="h-r-nsl">
+        <ul class="nav">
+          <router-link to="/" tag="li" active-class="current" exact>
+            <a>首页</a>
+          </router-link>
+          <router-link to="/course" tag="li" active-class="current">
+            <a>课程</a>
+          </router-link>
+          <router-link to="/teacher" tag="li" active-class="current">
+            <a>名师</a>
+          </router-link>
+        </ul>
+      </div>
+    </header>
     <div class="body">
-      <div class="content"><nuxt/></div>
+      <div class="content">
+        <nuxt/>
+      </div>
     </div>
   </div>
 </template>
+
 <script>
 export default {}
 </script>
 
 <style>
-html,body{
-  height:100%;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 </style>
-
 <style scoped>
-.head {
-  height: 50px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+.yishi-player {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.head .logo{
+header footer{
   height: 50px;
-  margin-left: 10px;
+  background-color: #f8f9fa;
+}
+
+.h-r-nsl {
+  display: flex;
+  margin-left: 10%;
+  height: 100%;
+}
+
+.nav {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  margin: 0 10px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #333;
 }
 
 .body {
-  position: absolute;
-  top: 50px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
+  flex: 1;
+  overflow: auto;
+}
+
+.content {
+  margin-left: 10%;
+  margin-right: 10%;
 }
 </style>
