@@ -29,32 +29,32 @@
           <div>
             <article class="comm-course-list">
               <ul class="of" id="bna">
-                <li v-for="course in courseList" :key="course.id">
+                <li v-for="item in courseList" :key="item.id">
                   <div class="cc-l-wrap">
                     <section class="course-img">
                       <img
-                        :src="course.cover"
+                        :src="item.cover"
                         class="img-responsive"
-                        :alt="course.title"
+                        :alt="item.title"
                       >
                       <div class="cc-mask">
-                        <a href="#" title="开始学习" class="comm-btn c-btn-1">开始学习</a>
+                        <a :href="'/course/'+item.id" title="开始学习" class="comm-btn c-btn-1">开始学习</a>
                       </div>
                     </section>
                     <h3 class="hLh30 txtOf mt10">
-                      <a href="#" :title="course.title" class="course-title fsize18 c-333">{{course.title}}</a>
+                      <a :href="'/course/'+item.id" :title="item.title" class="course-title fsize18 c-333">{{item.title}}</a>
                     </h3>
                     <section class="mt10 hLh20 of" >
-                      <span class="fr jgTag bg-green" v-if="Number(course.price) === 0">
+                      <span class="fr jgTag bg-green" v-if="Number(item.price) === 0">
                         <i class="c-fff fsize12 f-fA">免费</i>
                       </span>
                       <span class="fr jgTag bg-green" v-else>
-                         <i class="c-fff fsize12 f-fA"> ￥{{course.price}}</i>
+                         <i class="c-fff fsize12 f-fA"> ￥{{item.price}}</i>
                       </span>
                       <span class="fl jgAttr c-ccc f-fA">
-                        <i class="c-999 f-fA">{{course.buyCount}}人学习</i>
+                        <i class="c-999 f-fA">{{item.buyCount}}人学习</i>
                         |
-                        <i class="c-999 f-fA">{{course.viewCount}}人浏览</i>
+                        <i class="c-999 f-fA">{{item.viewCount}}人浏览</i>
                       </span>
                     </section>
                   </div>
@@ -63,7 +63,7 @@
               <div class="clear"></div>
             </article>
             <section class="tac pt20">
-              <a href="#" title="全部课程" class="comm-btn c-btn-2">全部课程</a>
+              <a href="/course" title="全部课程" class="comm-btn c-btn-2">全部课程</a>
             </section>
           </div>
         </section>

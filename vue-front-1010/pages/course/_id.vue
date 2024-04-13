@@ -3,9 +3,9 @@
     <!-- /课程详情 开始 -->
     <section class="container">
       <section class="path-wrap txtOf hLh30">
-        <a href="#" title class="c-999 fsize14">首页</a>
+        <a href="/course" title class="c-999 fsize14">首页</a>
         \
-        <a href="#" title class="c-999 fsize14">{{courseWebVo.subjectLevelOne}}</a>
+        <a href="/course" title class="c-999 fsize14">{{courseWebVo.subjectLevelOne}}</a>
         \
         <span class="c-333 fsize14">{{courseWebVo.subjectLevelTwo}}</span>
       </section>
@@ -27,14 +27,14 @@
             <section class="c-attr-mt c-attr-undis">
               <span class="c-fff fsize14">主讲： {{courseWebVo.teacherName}}&nbsp;&nbsp;&nbsp;</span>
             </section>
-            <section class="c-attr-mt of">
-              <span class="ml10 vam">
-                <em class="icon18 scIcon"></em>
-                <a class="c-fff vam" title="收藏" href="#" >收藏</a>
-              </span>
-            </section>
+<!--            <section class="c-attr-mt of">-->
+<!--              <span class="ml10 vam">-->
+<!--                <em class="icon18 scIcon"></em>-->
+<!--                <a class="c-fff vam" title="收藏" href="#" >收藏</a>-->
+<!--              </span>-->
+<!--            </section>-->
             <section class="c-attr-mt" v-if="isbuy || Number(courseWebVo.price) === 0">
-              <a href="#" title="立即观看" class="comm-btn c-btn-3">立即观看</a>
+              <a :href="'/player/'+chapterVideoList[0].children[0].videoSourceId" title="立即观看" class="comm-btn c-btn-3">立即观看</a>
             </section>
             <section class="c-attr-mt" v-else>
               <a href="#" title="立即购买" class="comm-btn c-btn-3" @click="createOrders()">立即购买</a>
@@ -116,7 +116,7 @@
                                   <em class="lh-menu-i-2 icon16 mr5">&nbsp;</em>{{video.title}}
                                 </a>
                               </li>
-                              
+
                             </ol>
 
                           </li>
@@ -217,18 +217,18 @@
           <div class="i-box">
             <div>
               <section class="c-infor-tabTitle c-tab-title">
-                <a title href="javascript:void(0)">主讲讲师</a>
+                <a title :href="'/teacher/'+courseWebVo.teacherId">主讲讲师</a>
               </section>
               <section class="stud-act-list">
                 <ul style="height: auto;">
                   <li>
                     <div class="u-face">
-                      <a href="#">
+                      <a :href="'/teacher/'+courseWebVo.teacherId">
                         <img :src="courseWebVo.avatar" width="50" height="50" alt>
                       </a>
                     </div>
                     <section class="hLh30 txtOf">
-                      <a class="c-333 fsize16 fl" href="#">{{courseWebVo.teacherName}}</a>
+                      <a class="c-333 fsize16 fl" :href="'/teacher/'+courseWebVo.teacherId">{{courseWebVo.teacherName}}</a>
                     </section>
                     <section class="hLh20 txtOf">
                       <span class="c-999">{{courseWebVo.intro}}</span>
@@ -243,7 +243,7 @@
       </div>
     </section>
     <!-- /课程详情 结束 -->
-    
+
   </div>
 </template>
 
@@ -280,7 +280,7 @@ export default {
      //生成订单
      createOrders(){
         orderApi.createOrders(this.courseId).then(response=>{
-          
+
           //获取返回的订单号
           //console.log(response.data.data.orderId)
 
@@ -318,7 +318,7 @@ export default {
               this.comment.content = ''
               this.initComment()
             }else if(response.data.code == 20001){
-              
+
                this.$message({
                   type: 'error',
                   message: '请登录!'
@@ -326,7 +326,7 @@ export default {
             }
         })
       }
-      
+
    }
 };
 </script>

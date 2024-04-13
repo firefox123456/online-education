@@ -4,6 +4,8 @@
       <a href="/login">登录</a>
       <span>·</span>
       <a class="active" href="/register">注册</a>
+      <span>·</span>
+      <a href="/">首页</a>
     </div>
 
     <div class="sign-up-container">

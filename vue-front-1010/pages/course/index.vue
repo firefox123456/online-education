@@ -16,12 +16,12 @@
             <dd class="c-s-dl-li">
               <ul class="clearfix">
                 <li>
-                  <a title="全部" href="#">全部</a>
+                  <a title="全部" href="/course">全部</a>
                 </li>
                 <li v-for="(item,index) in subjectNestedList" :key="index" :class="{active:oneIndex==index}">
                   <a :title="item.title" href="javascript:void(0);" @click="searchOne(item.id, index)">{{item.title}}</a>
                 </li>
-                
+
               </ul>
             </dd>
           </dl>
@@ -34,7 +34,7 @@
                 <li v-for="(item,index) in subSubjectList" :key="index" :class="{active:twoIndex==index}">
                   <a :title="item.title" href="#" @click="searchTwo(item.id,index)">{{item.title}}</a>
                 </li>
-                
+
               </ul>
             </dd>
           </dl>
@@ -103,7 +103,7 @@
                   </section>
                 </div>
               </li>
-              
+
             </ul>
             <div class="clear"></div>
           </article>
