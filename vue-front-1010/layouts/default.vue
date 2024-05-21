@@ -10,14 +10,20 @@
         </h1>
         <div class="h-r-nsl">
           <ul class="nav">
-            <router-link to="/" tag="li" active-class="current" exact>
+            <router-link to="/"  active-class="current" exact>
+              <li>
               <a>首页</a>
+              </li>
             </router-link>
-            <router-link to="/course" tag="li" active-class="current">
+            <router-link to="/course" active-class="current">
+              <li>
               <a>课程</a>
+              </li>
             </router-link>
-            <router-link to="/teacher" tag="li" active-class="current">
+            <router-link to="/teacher" active-class="current">
+              <li>
               <a>名师</a>
+              </li>
             </router-link>
 <!--            <router-link to="/article" tag="li" active-class="current">-->
 <!--              <a>文章</a>-->
